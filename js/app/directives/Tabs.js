@@ -18,7 +18,7 @@ function Tabs() {
       };
     },
     controllerAs: 'tabs',
-    link: function ($scope, $element, $attrs, $ctrl) {
+    link: function($scope, $element, $attrs, $ctrl) {
       $ctrl.selectTab($attrs.active || 0);
     },
     template: [

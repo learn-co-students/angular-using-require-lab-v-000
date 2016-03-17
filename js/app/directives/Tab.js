@@ -7,7 +7,7 @@ function Tab() {
     require: '^tabs',
     transclude: true,
     template: [
-      '<div class="tabs__content" ng-if="tab.slected">',
+      '<div class="tabs__content" ng-if="tab.selected">',
         '<div ng-transclude></div>',
       '</div>'
     ].join(''),
