@@ -1,0 +1,23 @@
+{
+  "name": "angular-e2e-test-lab",
+  "version": "1.0.0",
+  "description": "## Objectives",
+  "main": "spec/server.js",
+  "dependencies": {},
+  "devDependencies": {
+    "express": "4.13.4"
+  },
+  "scripts": {
+    "test": "learn"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/learn-co-curriculum/angular-e2e-test-lab.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/learn-co-curriculum/angular-e2e-test-lab/issues"
+  },
+  "homepage": "https://github.com/learn-co-curriculum/angular-e2e-test-lab#readme"
+}
