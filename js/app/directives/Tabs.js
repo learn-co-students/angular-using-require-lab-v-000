@@ -10,16 +10,15 @@ function Tabs() {
         this.tabs.push(tab);
       };
       this.selectTab = function(index) {
-        debugger;
         for (var i = 0; i < this.tabs.length; i++){
           this.tabs[i].selected = false;
         }
-        this.tabs[index] = true;
+        this.tabs[index].selected = true;
       }
     },
     controllerAs: 'tabs',
     link: function ($scope, $element, $attrs, $ctrl){
-      $ctrl.selectTab($attrs.active);
+      $ctrl.selectTab($attrs.active || 0);
     },
     template: [
       '<div class="tabs">',
