@@ -1,4 +1,4 @@
-function tab() {
+function Tab() {
 
   return {
     restrict: 'E',
@@ -23,6 +23,6 @@ function tab() {
 }
 
 angular
-  .module('app', [])
-  .directive('tab', tab)
-  .directive('tabs', tabs);
+  .module('app')
+  .directive('tab', Tab);
+  // .directive('tabs', tabs);

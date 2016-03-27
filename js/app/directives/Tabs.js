@@ -1,4 +1,4 @@
-function tabs() {
+function Tabs() {
 
   return {
     restrict: 'E',
@@ -10,6 +10,7 @@ function tabs() {
         this.tabs.push(tab);
       };
       this.selectTab = function(index) {
+        debugger;
         for (var i = 0; i < this.tabs.length; i++){
           this.tabs[i].selected = false;
         }
@@ -18,13 +19,13 @@ function tabs() {
     },
     controllerAs: 'tabs',
     link: function ($scope, $element, $attrs, $ctrl){
-      $ctrl.selectTab($attrs.active || 0);
+      $ctrl.selectTab($attrs.active);
     },
     template: [
-      "<div class='tabs'>",
-        "<ul class='tabs__list'>",
-          "<li ng-repeate='tab in tabs.tabs'>",
-            "<a href='' ng-bind='tab.label' ng-click='tabs.selectTab($index)'>tab.label</a>",
+      '<div class="tabs">',
+        '<ul class="tabs__list">',
+          '<li ng-repeat="tab in tabs.tabs">',
+            "<a href='' ng-bind='tab.label' ng-click='tabs.selectTab($index)'></a>",
           "</li>",
         "</ul>",
         "<div class='tabs__content' ng-transclude></div>",
@@ -35,5 +36,5 @@ function tabs() {
 }
 
 angular
-  .module('app', [])
-  .directive('tabs', tabs)
+  .module('app')
+  .directive('tabs', Tabs);
