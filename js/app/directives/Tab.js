@@ -2,7 +2,7 @@ function tab(){
   return {
     restrict: 'E',
     transclude: true,
-    template: '<div role="tabpanel" ng-show="active" ng-transclude></div>',
+    template: '<div ng-show="active" ng-transclude></div>',
     require: '^tabs',
     scope: {
       label: '@'
