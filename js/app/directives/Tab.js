@@ -4,29 +4,31 @@ function tab() {
     scope:{
       label: '@'
     },
-    require: '^tabs',
+    require: '^^tabs',
     transclude: true, 
-    // template: 'I am a tab! {{thing}}',
     template: [
-      "<li ng-click='tab.toggle()'>{{label}}",
-        "<div ng-transclude ng-show='tab.selected'></div>",
+      "<li ng-click='toggle()'>{{label}}",
+        "<div ng-transclude ng-show='selected'></div>",
+        // "<div ng-show='sel'>parent</div>",
       "</li>"
       ].join(""),
-    controller: function() {
-      this.selected = false;
-      this.toggle = function() {
-        this.selected = !this.selected;
-      };
-    },
-    controllerAs: 'tab',
-    // template: `
-    //   <div class="tabs__content" ng-if="tab.selected">
-    //     <div ng-transclude></div>
-    //   </div>
-    // `,
+    // controller: function($scope) {
+    //   // $scope.selected = true;
+    //   // $scope.toggle = function() {
+    //   //   $scope.selected = true;
+    //   //   // this.tabs.push()
+    //   // };
+    // },
+    // controllerAs: 'tab',
     link: function ($scope, $element, $attrs, $ctrl) {
-      $scope.thing = "fred";
-      // $ctrl.al();
+      // $scope.sel = true;
+      // $ctrl.activate($scope);
+      $ctrl.addTab($scope);
+      $scope.toggle = function() {
+        $ctrl.activate($scope)
+        // $scope.selected = true;
+        // this.tabs.push()
+      };
     }
   };
 }
