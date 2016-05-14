@@ -3,24 +3,29 @@ function tabs() {
     restrict: 'E',
     scope: {},
     transclude: true,
-    controller: function () {
+    controller: function ($log) {
       this.tabs = this.tabs || [];
       this.addTab = function (tab) {
         this.tabs.push(tab);
         this.tabs[0].selected = true;
+        console.log(tab.label)
       };
-
-      this.activate = function (scope) {
-        scope.selected = true;
-        this.tabs[0].selected = false;
-        this.tabs = [];
-        this.tabs.push(scope);
-      };
+      this.act = function (index)  {
+        this.tabs.forEach(function(item) {
+          item.selected = false;
+        });
+        this.tabs[index].selected = true;
+      }
     },
     controllerAs: 'tabs',
     template: [
       '<div class="tabs">Tabs',
-        '<ul class="tabs__list"></ul>',
+        "<ul class='tabs__list' ng-repeat='tab in tabs.tabs'>",
+          '<li ng-click="tabs.act($index)">',
+            '{{tab.label}}',
+          '</li>',
+        "</ul>",
+        // '<ul class="tabs__list"></ul>',
         '<div ng-transclude></div>',
       '</div>'
     ].join('')
@@ -30,3 +35,4 @@ function tabs() {
 angular
   .module('app', [])
   .directive('tabs', tabs);
+

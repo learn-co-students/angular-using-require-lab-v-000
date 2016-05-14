@@ -7,15 +7,10 @@ function tab() {
     require: '^^tabs',
     transclude: true, 
     template: [
-      "<li ng-click='toggle()'>{{label}}",
-        "<div class='tabs__content' ng-transclude ng-show='selected'></div>",
-      "</li>"
+        "<div class='tabs__content' ng-transclude ng-show='selected'></div>"
       ].join(""),
     link: function ($scope, $element, $attrs, $ctrl) {
       $ctrl.addTab($scope);
-      $scope.toggle = function() {
-        $ctrl.activate($scope);
-      };
     }
   };
 }
