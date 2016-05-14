@@ -7,6 +7,7 @@ function tabs() {
       this.tabs = this.tabs || [];
       this.addTab = function (tab) {
         this.tabs.push(tab);
+        this.tabs[0].selected = true;
       };
 
       this.activate = function (scope) {
@@ -20,7 +21,7 @@ function tabs() {
     template: [
       '<div class="tabs">Tabs',
         '<ul class="tabs__list"></ul>',
-        '<div class="tabs__content" ng-transclude></div>',
+        '<div ng-transclude></div>',
       '</div>'
     ].join('')
   };
