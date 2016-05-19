@@ -1,4 +1,4 @@
-function tab() {
+function Tab() {
   return {
     restrict: 'E',
     scope: {
@@ -7,17 +7,20 @@ function tab() {
     require: '^tabs',
     transclude: true,
     template: [
-      '<div class="tabs__content">',
-        '<div ng-transclude ng-show="$scope.label === tabs.activeTab"></div>',
-      '</div>'
+          '<div class="tabs__content" ng-if="tab.selected">',
+                '<div ng-transclude></div>',
+            '</div>'
     ].join(''),
     link: function ($scope, $element, $attrs, $ctrl) {
-        $ctrl.addTab($scope);
+      $scope.tab = {
+        label: $scope.label,
+        selected: false
+      };
+      $ctrl.addTab($scope.tab);
     }
-  };
+  }
 }
- 
+
 angular
-  .module('app', [])
-  .directive('tab', tab)
-  .directive('tabs', tabs);
+  .module('app')
+  .directive('tab', Tab);
