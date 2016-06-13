@@ -32,7 +32,6 @@ function tabs() {
   };
 }
 
-
 angular
   .module('app')
   .directive('tabs', tabs)
