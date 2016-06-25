@@ -15,7 +15,7 @@ function tab() {
     },
     controllerAs: 'tabs',
     template: [
-      '<div class="tabs__content" ng-show="tab.selected">',
+      '<div class="tabs__content" ng-if="tab.selected">',
         '<div ng-transclude></div>',
       '</div>'
     ].join(''),

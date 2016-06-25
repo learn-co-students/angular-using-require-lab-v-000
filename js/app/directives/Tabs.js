@@ -9,15 +9,15 @@ function tabs() {
       this.addTab = function (tab) {
         this.tabs.push(tab);
       };
-      this.selectTab = function (tab) {
-        tab.select = true;
+      this.selectTab = function (index) {
+        this.tabs[index].selected = true;
       }
     },
     controllerAs: 'tabs',
     template: [
       '<div class="tabs">',
         '<ul class="tabs__list"></ul>',
-        '<div class="tabs__content" ng-click="selectTab()" ng-transclude></div>',
+        '<div class="tabs__content" ng-click="selectTab($index)" ng-transclude></div>',
       '</div>'
     ].join('')
   };
