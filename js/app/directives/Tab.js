@@ -1,4 +1,4 @@
-function tab() {
+function Tab() {
   return {
     restrict: 'E',
     scope: {
@@ -6,12 +6,8 @@ function tab() {
     },
     require: '^tabs',
     transclude: true,
-        controller: function () {
-      this.tabs = [];
+    controller: function () {
 
-      this.addTab = function (tab) {
-        this.tabs.push(tab);
-      };
     },
     controllerAs: 'tabs',
     template: [
@@ -21,6 +17,12 @@ function tab() {
     ].join(''),
     link: function ($scope, $element, $attrs, $ctrl) {
         // $ctrl = { tabs: [], addTab: func(){} }
+        $scope.tab = {
+          label: $scope.label,
+          selected: false
+        };
+
+        $ctrl.addTab($scope.tab);
     }
   };
 }

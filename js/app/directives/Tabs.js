@@ -1,4 +1,4 @@
-function tabs() {
+function Tabs() {
   return {
     restrict: 'E',
     scope: {},
