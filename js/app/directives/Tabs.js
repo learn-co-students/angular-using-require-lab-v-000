@@ -35,3 +35,4 @@ function Tabs() {
 angular
   .module('app')
   .directive('tabs', Tabs);
+

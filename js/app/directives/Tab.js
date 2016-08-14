@@ -23,6 +23,5 @@ function Tab() {
 
 angular
   .module('app')
-  .directive('tab', tab)
-  .directive('tabs', Tabs);
+  .directive('tab', Tab);
 
