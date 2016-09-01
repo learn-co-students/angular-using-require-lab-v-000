@@ -17,7 +17,11 @@ function Tab() {
     </div>
     `,
     link: function($scope, $element, $attrs, $ctrl) {
-
+      $scope.tab { //in scope of each tab, set properties
+        label: $scope.label, //set label equal to value of the label attr
+        selected: false //set initial value of tab.selected to false
+      };
+      $ctrl.addTab($scope.tab); //each time tab directive is used, push into tabs array (3x)
     }
   };
 };
