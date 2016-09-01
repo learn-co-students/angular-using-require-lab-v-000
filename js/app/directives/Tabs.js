@@ -22,9 +22,9 @@ function tabs() {
       };
     },
     controllerAs: 'tabs',
-    // set first tab to show first
+    // set the active tab or first tab
     link: function($scope, $element, $attrs, $ctrl) {
-      $ctrl.selectTab(0);
+      $ctrl.selectTab($attrs.active || 0);
     },
     // 'tabs_list' will hold the values of each tab.label
     // 'tabs_content' with ng-transclude will hold the tab content
