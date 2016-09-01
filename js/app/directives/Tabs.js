@@ -9,6 +9,10 @@ function tabs() {
     transclude: true, //indicate that will have insertion at ng-transclude
     controller: function() {
       this.tabs = [];
+      //dynamically add each tab to parent directive 'tabs'
+      this.addTab = function(tab) {
+        this.tabs.push(tab);
+      };
     },
     // 'tabs_list' will hold the values of each tab.label
     // 'tabs_content' with ng-transclude will hold the tab content
