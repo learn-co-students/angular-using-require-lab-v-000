@@ -4,12 +4,12 @@ angular
 
 function Tab() {
   return {
-    restrict: 'E',
+    restrict: 'E', //restrict to use as element
     scope: {
-      label: '@'
+      label: '@' //in each tab directive, look for 'label' attr and one-way bind to string literal
     },
     require: '^tabs', //require tabs directive, gain access to its controller
-    transclude: true,
+    transclude: true, //indicate will have insertion at ng-transclude
     template:
     `
       <div class="tabs__content" ng-if="tab.selected">
@@ -17,41 +17,27 @@ function Tab() {
       </div>
     `,
     link: function($scope, $element, $attrs, $ctrl) {
-      $scope.tab = {
-        label: $scope.label,
-        selected: false
+      $scope.tab = { //in scope of each tab, set properties
+        label: $scope.label, //set label equal to value of bound label attr
+        selected: false //set initial value of selected to false
       };
-      $ctrl.addTab($scope.tab);
+      $ctrl.addTab($scope.tab); //for each tab directive, call addTab method from tabs controller
     }
   };
 };
 
-
-// angular
-//   .module('app')
-//   .directive('tab', Tab)
-
-// function Tab() {
-//   return {
-//     restrict: 'E', //restrict to use as element
-//     scope: {
-//       label: '@' //in each tab directive, look for 'label' attr and use string literal value
-//     },
-//     require: '^tabs', //communicate and get access to tabs directive and controller
-//     transclude: true, //indicate that will have insertion at ng-transclude
-//     // 'tabs_content' with ng-transclude will hold the tab content
-//     template:
-//     `
-//       <div class="tabs__content" ng-if="tab.selected">
-//         <div ng-transclude></div>
+//     <div class="tabs__content" ng-transclude=""> 
+//       <tab label="Tab 1" class="ng-scope ng-isolate-scope">
+//       </tab>
+//       <tab label="Tab 2" class="ng-scope ng-isolate-scope">
+//       </tab>
+//         <tab label="Tab 3" class="ng-scope ng-isolate-scope">
+//           <div class="tabs__content ng-scope" ng-if="tab.selected">
+//             <div ng-transclude="">
+//               <span class="ng-scope">
+//                 Tab 3 contents!
+//               </span>
+//             </div>
+//           </div>
+//         </tab>
 //       </div>
-//     `,
-//     link: function($scope, $element, $attrs, $ctrl) {
-//       $scope.tab { //in scope of each tab, set properties
-//         label: $scope.label, //set label equal to value of the label attr
-//         selected: false //set initial value of tab.selected to false
-//       };
-//       $ctrl.addTab($scope.tab); //each time tab directive is used, push into tabs array (3x)
-//     }
-//   };
-// };
