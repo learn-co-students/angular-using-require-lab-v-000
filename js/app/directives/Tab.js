@@ -1,4 +1,4 @@
-function tab() {
+function Tab() {
   return {
     restrict: 'E',
     scope: {
@@ -6,7 +6,6 @@ function tab() {
     },
     require: '^tabs',
     transclude: true,
-    controllerAs: 'tabs',
     template: [
       '<div class="tabs_content" ng-if="tab.selected">',
         '<div ng-transclude></div>',
@@ -23,6 +22,5 @@ function tab() {
 }
 
 angular
-  .module('app', [])
-  .directive('tab', tab)
-  .directive('tabs', tabs);
+  .module('app')
+  .directive('tab', Tab)

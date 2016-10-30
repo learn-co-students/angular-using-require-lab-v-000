@@ -1,4 +1,4 @@
-function tabs() {
+function Tabs() {
   return {
     restrict: 'E',
     scope: {},
@@ -34,5 +34,5 @@ function tabs() {
 }
 
 angular
-  .module('app', [])
-  .directive('tabs', tabs);
+  .module('app')
+  .directive('tabs', Tabs);
