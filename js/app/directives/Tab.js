@@ -17,6 +17,7 @@ function Tab(){
         selected: false
       };
       $ctrl.addTab($scope.tab);
+      
     }
   };
 }
