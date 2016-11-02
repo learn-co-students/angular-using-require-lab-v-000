@@ -5,7 +5,7 @@ function Tab(){
       label: '@'
     },
     require: '^tabs',
-    tansclude: true, 
+    transclude: true, 
     template: [  
       '<div class="tabs__content" ng-if="tab.selected">',
           '<div ng-transclude></div>',
