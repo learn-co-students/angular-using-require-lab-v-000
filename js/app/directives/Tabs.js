@@ -5,10 +5,10 @@ function Tabs() {
 		transclude: true,
 		controller: function() {
 			this.tabs = [];
-			this.addTab = function addTab(tab) {
+			this.addTab = function(tab) {
 				this.tabs.push(tab);
 			};
-			this.selectTab = function selectTab(index) {
+			this.selectTab = function(index) {
 				for (var i=0; i<this.tabs.length; i++) {
 					this.tabs[i].selected = false;
 				}
