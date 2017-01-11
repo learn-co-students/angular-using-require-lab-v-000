@@ -35,3 +35,4 @@ angular
   .directive('tabs', tabs);
 
 // See section "Creating Directives that Communicate"  of Angular Directives docs: https://docs.angularjs.org/guide/directive
+// Also: https://toddmotto.com/angular-1-5-lifecycle-hooks#using-postlink
