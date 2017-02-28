@@ -9,7 +9,7 @@ function Tabs() {
 			this.addTab = function addTab(tab) {
 				this.tabs.push(tab);
 			};
-			
+
 			this.selectTab = function selectTab(index) {
 				for (var i = 0; i < this.tabs.length; i++) {
 					this.tabs[i].selected = false;
@@ -33,6 +33,7 @@ function Tabs() {
 		].join('')
 	};
 }
+
 
 angular
 	.module('app')

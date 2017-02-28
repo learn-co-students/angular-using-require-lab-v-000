@@ -24,6 +24,7 @@ function Tab() {
 	}
 }
 
+
 angular
 	.module('app')
 	.directive('tab', Tab);
