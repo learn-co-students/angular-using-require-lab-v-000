@@ -6,16 +6,23 @@ function Tab() {
 			'</div>'
 		].join(''),
 		scope: {
-			label: "@"
+			label: "@",
+			active: "@"
 		},
 		require: '^tabs',
 		transclude: true,
 		controller: function($scope) {
-			this.active = true
 		},
 		controllerAs: 'tab',
 		link: function($scope, $element, $attrs, $ctrl) {
-			$ctrl.addTab($scope.label)
+			var value;
+			if ($scope.label == "Tab 1") {
+				value = true
+			} else {
+				value = false
+			}
+			$scope.tab = {label: $scope.label, active: value}
+			$ctrl.addTab($scope.tab)
 		}
 	}
 }
@@ -23,4 +30,3 @@ function Tab() {
 angular
 	.module('app')
 	.directive('tab', Tab)
-	.directive('tabs', tabs)
