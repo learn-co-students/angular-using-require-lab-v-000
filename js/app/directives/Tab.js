@@ -15,13 +15,7 @@ function Tab() {
 		},
 		controllerAs: 'tab',
 		link: function($scope, $element, $attrs, $ctrl) {
-			var value;
-			if ($scope.label == "Tab 1") {
-				value = true
-			} else {
-				value = false
-			}
-			$scope.tab = {label: $scope.label, active: value}
+			$scope.tab = {label: $scope.label, active: ($scope.label == "Tab 1" ? true : false)}
 			$ctrl.addTab($scope.tab)
 		}
 	}
